@@ -1,0 +1,44 @@
+*{
+    margin:8px;
+    padding:0;
+    text-align:center;
+    
+}
+.contain{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-flow:row wrap;
+}
+.btn{
+    border:none;
+    color:black;
+    background-color:cyan;
+    border-radius:8px;
+    padding:10px;
+    width:80px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+.btn:hover{
+    cursor:pointer;
+    background-color:darkcyan;
+}
+
+#result{
+    background-color:cyan;
+    padding:10px;
+    width: 100px;
+    height:30px;
+    margin:0 auto;
+    border-radius:8px;
+    
+}
+
+#tm{
+    margin:0 auto;
+    background-color:violet;
+    border:3px solid black;
+    height:300px;
+    width:100px;
+}

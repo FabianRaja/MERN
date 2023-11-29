@@ -1,0 +1,114 @@
+//see reducer polyfill document for inner work of reducer
+
+
+import { createContext, useContext, useReducer, useState } from "react";
+import "./styles.css";
+const shopCtx = createContext(null);
+
+const store = {
+  productPrice: 5000,
+  cartCount: 0,
+  totalCost: 0
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "inc_cart_value":
+      return { ...state, cartCount: state.cartCount + 1 };
+    case "dec_cart_value":
+      return { ...state, cartCount: state.cartCount - 1 };
+    case "change_product_price":
+      return { ...state, productPrice: action.payload };
+    case "total_cost":
+      return {...state,totalCost:state.productPrice*state.cartCount};
+    case "default_value":
+      return {...state,productPrice:5000,cartCount:0,totalCost:0}
+    default:
+      return state;
+  }
+};
+
+// function defaultValue() {
+//   setCartCount(0);
+//   setTotalCost(0);
+// }
+
+// function totalCostValue() {
+//   setTotalCost(state.productPrice * state.car);
+// }
+
+export default function App() {
+ 
+
+  const [state, dispatch] = useReducer(reducer, store);
+
+  return (
+    <div className="App">
+      <shopCtx.Provider
+        value={{
+   
+          dispatch,
+          state
+        }}
+      >
+        <ProductCard />
+        <Cart />
+        <AdminControl />
+      </shopCtx.Provider>
+    </div>
+  );
+}
+
+function ProductCard() {
+  const { state, dispatch } = useContext(shopCtx);
+
+ 
+
+  return (
+    <div className="product-card">
+      <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/shoe/x/k/3/-original-imagsuvne32jawqr.jpeg?q=90" />
+      <div className="card">
+        <button onClick={() => dispatch({ type: "dec_cart_value" })}>-</button>
+        {state.cartCount}
+        <button onClick={() => dispatch({ type: "inc_cart_value" })}>+</button>
+      </div>
+      <p>Price : {state.productPrice}</p>
+      <button onClick={()=>dispatch({type: "total_cost"})}>Checkout</button>
+    </div>
+  );
+}
+
+function Cart() {
+  const {state, dispatch } = useContext(shopCtx);
+
+  return (
+    <div className="product-card">
+      <h3>Items in Cart</h3>
+      <div className="card">
+        <button onClick={() => dispatch({ type: "dec_cart_value" })}>-</button>
+        {state.cartCount}
+        <button onClick={() => dispatch({ type: "inc_cart_value" })}>+</button>
+      </div>
+      <h3>Total :{state.totalCost} </h3>
+      <button onClick={()=>dispatch({type:"default_value"})}>Buy</button>
+    </div>
+  );
+}
+
+function AdminControl() {
+  const { state, dispatch } = useContext(shopCtx);
+  return (
+    <div>
+      <input
+        type="number"
+        onChange={(event) =>
+          dispatch({
+            type: "change_product_price",
+            payload: event.target.value
+          })
+        }
+        value={state.productPrice}
+      />
+    </div>
+  );
+}

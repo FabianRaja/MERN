@@ -1,0 +1,13 @@
+body{
+    background-color:black;
+}
+@media screen and (min-width:600px) and (max-width:900px){
+    body{
+        background-color:cyan;
+    }
+}
+@media screen and (min-width:200px) and (max-width:599px){
+    body{
+        background-color:red;
+    }
+}

@@ -1,0 +1,32 @@
+[
+    {
+        "id"  :"1",
+        "name":"Fabian",
+        "age" :"21",
+        "sex" :"male"
+    },
+    {
+        "id"  :"2",
+        "name":"Antony",
+        "age" :"55",
+        "sex" :"male"
+    },
+    {
+        "id"  :"3",
+        "name":"Jerina",
+        "age" :"52",
+        "sex" :"female"
+    },
+    {
+        "id"  :"4",
+        "name":"Anabel",
+        "age" :"25",
+        "sex" :"female"
+    },
+    {
+        "id"  :"5",
+        "name":"Virat",
+        "age" :"35",
+        "sex" :"male"
+    }
+]

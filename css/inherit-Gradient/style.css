@@ -1,0 +1,14 @@
+body{
+    /* background:linear-gradient(to left,red,yellow); */
+    background:radial-gradient(circle,red,yellow);
+    
+}
+.parent{
+    color:red;   
+}
+.child{
+    color:green;
+}
+p{
+    color:inherit;
+}

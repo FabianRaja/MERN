@@ -1,0 +1,53 @@
+.outbox{
+    background-color:aqua;
+    border:2px solid black;
+    height:350px;
+    width:350px;
+    margin:0 auto;
+    padding:10px 0 10px 0;
+    
+    
+}
+.box{
+    background-color:darkmagenta;
+    color:black;;
+    height:70px;
+    width:70px;
+    border:2px solid black;
+    margin:2px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bolder;
+}
+.absolute{
+    background-color:red;
+    position:absolute;
+    left:100px;
+    top:150px;
+    
+}
+.relative{
+    background-color:white;
+    position:relative;
+    right:100px;
+    left:300px;
+    bottom:10px;
+    top:40px;
+
+}
+.fixed{
+    background-color:crimson;
+    position:fixed;
+    
+    right:0;
+    top:0;
+    
+}
+.sticky{
+    background-color:chartreuse;
+    position:sticky;
+    bottom:0;
+    top:0px;
+
+}

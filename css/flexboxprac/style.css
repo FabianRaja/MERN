@@ -1,0 +1,27 @@
+h1{
+    text-align:center;
+}
+.out{
+    background-color:aqua;
+    border:3px solid black;
+    height:450px;
+    padding:50px;
+    display:flex;
+    flex-flow:row wrap;
+    gap:0.5em;
+    justify-content:space-evenly;
+    align-content:center;
+
+    
+}
+.fl{
+    background-color:darkmagenta;
+    border:1px solid black;
+    height:100px;
+    width:100px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    
+}

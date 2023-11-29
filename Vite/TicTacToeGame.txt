@@ -1,0 +1,83 @@
+import React, { useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [board, setBoard] = useState([
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]);
+  const [xturn, setXturn] = useState(true);
+
+  function winnerLogic(board) {
+    const winnerLines = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [2, 1, 0],
+      [5, 4, 3],
+      [8, 7, 6],
+      [0, 3, 6],
+      [6, 3, 0],
+      [1, 4, 7],
+      [7, 4, 1],
+      [2, 5, 8],
+      [8, 5, 2],
+      [0, 4, 8],
+      [8, 4, 0],
+      [2, 4, 6],
+      [6, 4, 2]
+    ];
+
+    for (let i = 0; i < winnerLines.length; i++) {
+      const [a, b, c] = winnerLines[i];
+
+      //no null value
+      //a=b
+      //b=c
+
+      if (board[a] != null && board[a] === board[b] && board[b] === board[c]) {
+        console.log("Winner", board[a]);
+      }
+    }
+  }
+  winnerLogic(board);
+
+  const handleClick = (id) => {
+    //check box is empty
+    if (!board[id]) {
+      // console.log("board:", board);
+      const boardCopy = [...board];
+      // console.log("boardCopy", boardCopy);
+      boardCopy[id] = xturn ? "X" : "O";
+      setBoard(boardCopy);
+      setXturn(!xturn);
+    }
+  };
+
+  return (
+    <div className="App">
+      {board?.map((value, idx) => (
+        <GameSquare
+          key={idx}
+          value={value}
+          onPlayersClick={() => handleClick(idx)}
+        />
+      ))}
+    </div>
+  );
+}
+
+function GameSquare({ value, onPlayersClick }) {
+  return (
+    <div onClick={() => onPlayersClick()} className="game-box">
+      {value}
+    </div>
+  );
+}

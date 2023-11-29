@@ -1,0 +1,21 @@
+.vvv{
+    display:inline-block;
+    background-color:blue;
+    margin:20px;
+    padding:10px;
+    color:chocolate ;
+    text-align:center;
+    width:50px;
+    height:default;
+
+}
+#xxx{
+    color:white;
+}
+#aaa{
+    background-color:red;
+}
+#aaa h3{
+    color:blue;
+    background-color:black;
+}

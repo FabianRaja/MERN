@@ -1,0 +1,104 @@
+.card{
+    justify-content:center;
+    display:inline-grid;
+    padding:5px 10px 20px 10px;
+    margin:10px;
+    width:120px;
+    height:250px;
+    border-radius:10px;
+    box-shadow:3px 3px 10px 0 rgb(22, 11, 11);
+    overflow:hidden;
+}
+span{
+    font-weight:bold;
+    display:flex;
+    justify-content:center;
+}
+.delete{
+    background-color: red;
+    border:none;
+    border-radius:5px;
+    padding:4px;
+    cursor:pointer;
+    font-weight:bold;
+    color:white;
+    margin:2px;
+}
+
+.delete:hover{
+    color:black;
+}
+
+.inputText{
+    border-radius:5px;
+    margin:2px;
+    padding:12px;
+    height:10px;
+    width:400px;;
+    font-size:12px;
+    background-color:whitesmoke;
+    border:none;
+}
+
+.formData{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    gap:8px;
+    margin:3px;
+    border:2px solid black;
+    padding:20px;
+    
+}
+
+.addButton{
+    background-color:darkorchid;
+    border-radius:8px;
+    border:none;
+    padding:5px;
+    margin:4px;
+    height:30px;
+    width:120px;
+    cursor:pointer;
+    color:white;
+
+}
+.addButton:hover{
+    color:black;
+}
+.edit{
+    background-color: darkblue;
+    border:none;
+    border-radius:5px;
+    padding:4px;
+    cursor:pointer;
+    font-weight:bold;
+    color:white;
+    margin:2px;
+}
+.edit:hover{
+    color:black;
+}
+.ageEdit{
+    display:flex;
+    justify-content: center;
+}
+.sexEdit{
+    display:flex;
+    justify-content: center;
+}
+.updateButton{
+    background-color:rgb(128, 128, 134);
+    border-radius:8px;
+    border:none;
+    padding:5px;
+    margin:4px;
+    height:30px;
+    width:120px;
+    cursor:pointer;
+    color:white;
+}
+.updateButton:hover{
+    color:black;
+}

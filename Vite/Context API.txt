@@ -1,0 +1,96 @@
+import { createContext, useContext, useState } from "react";
+import "./styles.css";
+const shopCtx = createContext(null);
+
+export default function App() {
+  const [productPrice, setProductPrice] = useState(5000);
+  const [cartCount, setCartCount] = useState(0);
+  const [totalCost, setTotalCost] = useState(0);
+
+  return (
+    <div className="App">
+      <shopCtx.Provider
+        value={{
+          cartCount,
+          setCartCount,
+          productPrice,
+          setProductPrice,
+          totalCost,
+          setTotalCost
+        }}
+      >
+        <ProductCard />
+        <Cart />
+        <AdminControl />
+      </shopCtx.Provider>
+    </div>
+  );
+}
+
+function ProductCard() {
+  const {
+    cartCount,
+    setCartCount,
+    totalCost,
+    setTotalCost,
+    productPrice
+  } = useContext(shopCtx);
+
+  function totalCostValue() {
+    setTotalCost(productPrice * cartCount);
+  }
+
+  return (
+    <div className="product-card">
+      <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/shoe/x/k/3/-original-imagsuvne32jawqr.jpeg?q=90" />
+      <div className="card">
+        <button onClick={() => setCartCount(cartCount - 1)}>-</button>
+        {cartCount}
+        <button onClick={() => setCartCount(cartCount + 1)}>+</button>
+      </div>
+      <p>Price : {productPrice}</p>
+      <button onClick={totalCostValue}>Checkout</button>
+    </div>
+  );
+}
+
+function Cart() {
+  const {
+    cartCount,
+    setCartCount,
+    totalCost,
+    setTotalCost,
+    setProductPrice
+  } = useContext(shopCtx);
+
+  function defaultValue() {
+    setCartCount(0);
+    setTotalCost(0);
+    setProductPrice(5000);
+  }
+  return (
+    <div className="product-card">
+      <h3>Items in Cart</h3>
+      <div className="card">
+        <button onClick={() => setCartCount(cartCount - 1)}>-</button>
+        {cartCount}
+        <button onClick={() => setCartCount(cartCount + 1)}>+</button>
+      </div>
+      <h3>Total :{totalCost} </h3>
+      <button onClick={defaultValue}>Buy</button>
+    </div>
+  );
+}
+
+function AdminControl() {
+  const { productPrice, setProductPrice } = useContext(shopCtx);
+  return (
+    <div>
+      <input
+        type="number"
+        onChange={(event) => setProductPrice(event.target.value)}
+        value={productPrice}
+      />
+    </div>
+  );
+}

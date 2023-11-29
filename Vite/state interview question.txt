@@ -1,0 +1,16 @@
+import "./styles.css";
+import React, { useState } from "react";
+export default function App() {
+  const [change, setChange] = useState(0);
+  function handleClick() {
+    setChange((count) => count + 1);
+    setChange((count) => count + 1);
+  }
+  return (
+    <div className="App">
+      <button onClick={handleClick}>INC</button>
+      {change}
+      <button>DEC</button>
+    </div>
+  );
+}
