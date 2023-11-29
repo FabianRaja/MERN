@@ -49,3 +49,6 @@ function mul(val){
     };
 }
 console.log(mul(2)(3)(3)())
+
+
+//just practice
