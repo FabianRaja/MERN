@@ -1,6 +1,7 @@
 import express from "express";
 import { getUser, registerUser } from "../Controllers/user.js";
 import bcrypt from "bcrypt";
+import { generateToken } from "../Auth/auth.js";
 
 const router=express.Router();
 
@@ -48,7 +49,8 @@ router.post("/login",async(req,res)=>{
         if(!validPassword){
             return res.status(400).json({error:"Invalid Password"});
         }
-        res.status(200).json({message:"Loggin in successfully"});
+        const token=generateToken(checkUser._id);
+        res.status(200).json({message:"Loggin in successfully",token});
     } catch (error) {
         res.status(500).json({error:'Internal server error',errorMessage:error});
     }
