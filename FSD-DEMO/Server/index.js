@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import { connectDB } from "./db.js";
 import cors from "cors";
 import { userRouter } from "./Routes/user.js";
+import { notesRouter } from "./Routes/notes.js";
+import { isAuthenticated } from "./Auth/auth.js";
 
 
 //configuration
@@ -21,5 +23,6 @@ connectDB();
 
 //initializing the routes
 app.use("/app/user",userRouter);
+app.use("/app/notes",isAuthenticated,notesRouter);
 
 app.listen(PORT,()=>{console.log(`Server running in local host:${PORT}`)});
