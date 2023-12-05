@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -11,9 +11,10 @@ export default function AppProvider({children}){
         navigate("/register",{replace:true});
      }
     },[navigate])
+    const [token,setToken]=useState("");
     return(
         <div>
-           <NotesCtx.Provider value={{}}>
+           <NotesCtx.Provider value={{token,setToken}}>
                 {children}
            </NotesCtx.Provider>
         </div>

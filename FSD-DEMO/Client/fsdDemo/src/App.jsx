@@ -6,7 +6,6 @@ import Dashboard from './Pages/Dashboard.jsx'
 import Profile from './Pages/Profile.jsx'
 import AddPage from './Pages/AddPage.jsx'
 import EditPage from './Pages/EditPage.jsx'
-import LoginPage from './Pages/LoginPage.jsx'
 import SignUp from './Pages/SignUp.jsx'
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
       <Route  path="/user"  element={<Profile/>}/>
       <Route  path="/user/add" element={<AddPage/>}/>
       <Route  path="/user/edit/:id" element={<EditPage/>}/>
-      <Route exact path="/login" element={<LoginPage/>}/>
       <Route exact path="/register" element={<SignUp/>}/>
      </Routes>
     </>

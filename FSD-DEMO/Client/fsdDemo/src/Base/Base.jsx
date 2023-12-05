@@ -11,6 +11,10 @@ import { useNavigate } from "react-router-dom";
 
 export const Base=({title,children})=>{
   const navigate=useNavigate();
+  function handleLogout(){
+    localStorage.removeItem("token");
+    navigate("/register",{replace:true})
+  }
     return(
         <div>
             <div>
@@ -31,10 +35,9 @@ export const Base=({title,children})=>{
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                           Short Notes
                         </Typography>
-                        <Button color="inherit" onClick={()=>navigate("/login")}>Login</Button>
                         <Button color="inherit" onClick={()=>navigate("/register")}>Login/SignUp</Button>
                         <Button color="inherit" onClick={()=>navigate("/user")}>Profile</Button>
-                        <Button color="inherit">Logout</Button>
+                        <Button color="inherit" onClick={()=>handleLogout()}>Logout</Button>
                       </Toolbar>
                     </AppBar>
                   </Box>
